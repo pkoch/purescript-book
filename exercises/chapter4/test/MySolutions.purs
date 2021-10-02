@@ -2,8 +2,8 @@ module Test.MySolutions where
 
 import Prelude
 
-import Data.Array (filter, length, (..))
 import Control.Alternative (guard)
+import Data.Array (cons, filter, length, (..))
 import Math (pow)
 import Test.Examples (factors)
 
@@ -44,3 +44,15 @@ triples n = do
   c <- 1 .. n
   guard $ a * a + b * b == c * c
   pure [b, a, c]
+
+-- I cheated. I hate prime juggling.
+primeFactors :: Int -> Array Int
+primeFactors n = factorize 2 n
+  where
+  factorize :: Int -> Int -> Array Int
+  factorize _ 1 = []
+  factorize divisor dividend =
+    if dividend `mod` divisor == 0 then
+      cons divisor $ factorize (divisor) (dividend / divisor)
+    else
+      factorize (divisor + 1) dividend
