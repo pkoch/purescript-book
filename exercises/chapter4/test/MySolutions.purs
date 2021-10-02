@@ -3,7 +3,7 @@ module Test.MySolutions where
 import Prelude
 
 import Control.Alternative (guard)
-import Data.Array (cons, filter, length, (..))
+import Data.Array (cons, filter, fold, foldl, foldr, length, (..))
 import Math (pow)
 import Test.Examples (factors)
 
@@ -56,3 +56,6 @@ primeFactors n = factorize 2 n
       cons divisor $ factorize (divisor) (dividend / divisor)
     else
       factorize (divisor + 1) dividend
+
+allTrue :: Array Boolean -> Boolean
+allTrue = foldr (&&) true
