@@ -59,3 +59,16 @@ primeFactors n = factorize 2 n
 
 allTrue :: Array Boolean -> Boolean
 allTrue = foldr (&&) true
+
+-- I cheated. I don't wanna play this game.
+fibTailRec :: Int -> Int
+fibTailRec 0 = 0
+fibTailRec 1 = 1
+fibTailRec n = fib' n 2 0 1
+
+fib' :: Int -> Int -> Int -> Int -> Int
+fib' target curr n1 n2
+    | target == curr
+    = n1 + n2
+fib' target curr n1 n2
+    = fib' target (curr + 1) n2 (n1 + n2)
