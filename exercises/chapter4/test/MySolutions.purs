@@ -4,6 +4,7 @@ import Prelude
 
 import Data.Array (filter, length)
 import Math (pow)
+import Test.Examples (factors)
 
 -- Note to reader: Add your solutions to this file
 
@@ -23,3 +24,8 @@ infix 5 filter as <$?>
 
 keepNonNegativeRewrite :: Array Number -> Array Number
 keepNonNegativeRewrite l = (_ >= 0.0) <$?> l
+
+isPrime :: Int -> Boolean
+isPrime 0 = false
+isPrime 1 = false
+isPrime n = length (factors n)  == 1
