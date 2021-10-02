@@ -29,3 +29,9 @@ isPrime :: Int -> Boolean
 isPrime 0 = false
 isPrime 1 = false
 isPrime n = length (factors n)  == 1
+
+cartesianProduct :: forall a. Array a -> Array a -> Array (Array a)
+cartesianProduct a b = do
+  aa <- a
+  bb <- b
+  [ [aa, bb] ]
