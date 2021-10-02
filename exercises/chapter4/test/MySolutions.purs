@@ -3,7 +3,7 @@ module Test.MySolutions where
 import Prelude
 
 import Control.Alternative (guard)
-import Data.Array (cons, filter, fold, foldl, foldr, length, (..))
+import Data.Array (cons, filter, fold, foldl, foldr, length, snoc, (..))
 import Math (pow)
 import Test.Examples (factors)
 
@@ -72,3 +72,6 @@ fib' target curr n1 n2
     = n1 + n2
 fib' target curr n1 n2
     = fib' target (curr + 1) n2 (n1 + n2)
+
+reverse :: Array Int -> Array Int
+reverse = foldl (flip cons) []
