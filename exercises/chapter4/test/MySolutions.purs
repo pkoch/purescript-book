@@ -18,3 +18,5 @@ squared = map (\x -> pow x 2.0)
 
 keepNonNegative :: Array Number -> Array Number
 keepNonNegative = filter (\x -> x >= 0.0)
+
+infix 5 filter as <$?>
