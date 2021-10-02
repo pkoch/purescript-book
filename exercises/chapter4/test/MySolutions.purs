@@ -15,3 +15,6 @@ countEven = filter isEven >>> length
 
 squared :: Array Number -> Array Number
 squared = map (\x -> pow x 2.0)
+
+keepNonNegative :: Array Number -> Array Number
+keepNonNegative = filter (\x -> x >= 0.0)
