@@ -9,31 +9,21 @@ import Data.Path (Path, ls)
 
 -- ANCHOR: factorial
 factorial :: Int -> Int
-factorial n =
-  if n == 0 then
-    1
-  else
-    n * factorial (n - 1)
+factorial 0 = 1
+factorial n = n * factorial (n - 1)
 -- ANCHOR_END: factorial
 
 -- ANCHOR: fib
 fib :: Int -> Int
-fib n =
-  if n == 0 then
-    0
-  else if n == 1 then
-    1
-  else
-    fib (n - 1) + fib (n - 2)
+fib 0 = 0
+fib 1 = 1
+fib n = fib (n - 1) + fib (n - 2)
 -- ANCHOR_END: fib
 
 -- ANCHOR: length
 length :: forall a. Array a -> Int
-length arr =
-  if null arr then
-    0
-  else
-    1 + (length $ fromMaybe [] $ tail arr)
+length [] = 0
+length arr = 1 + (length $ fromMaybe [] $ tail arr)
 -- ANCHOR_END: length
 
 -- ANCHOR: factors
